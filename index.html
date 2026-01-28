@@ -2,20 +2,16 @@
 <!-- 
   CHANGELOG (Guardian Edition)
   --------------------------------------------------
-  v2.6 (2026-01-28):
+  v2.5 (2026-01-28):
   - CONFIG: Updated Trello API Key for new hosting environment.
-  v2.5 (2026-01-22):
+  v2.4 (2026-01-22):
   - FIX: "Stealth Mode" Audio Strategy. Changed Silent Noise to 30Hz Sine Wave.
     Allows browser registration (Speaker Icon) without audible humming.
-  v2.4 (2026-01-22):
+  v2.3 (2026-01-22):
   - FIX: Increased gain on "Silent Noise" to ensure browser 
     registers audio activity (Speaker Icon visible).
-  v2.3 (2026-01-22):
-  - FIX: Added "Silent Noise" Keep-Alive strategy.
   v2.2 (2026-01-22):
-  - FEAT: Added Google Analytics 4 (GA4) integration.
-  - FEAT: Added User Identification (via Trello Profile).
-  - FEAT: Added Custom Events (Alert Type, Sounds, Bucket Count, Errors).
+  - FIX: Added "Silent Noise" Keep-Alive strategy.
   v2.1 (2026-01-22):
   - REFACTOR: Moved polling logic to external Worker (js/worker.js).
   - FEAT: Added "Smart Grid" layout (3 buckets per row, auto-center remainder).
@@ -29,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>TrelloWatcher</title>
     
-    <!-- GOOGLE ANALYTICS (GA4) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L20DL17QMT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -38,7 +34,7 @@
       gtag('config', 'G-L20DL17QMT');
     </script>
 
-    <!-- ANALYTICS (CLARITY) -->
+   
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
