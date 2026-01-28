@@ -2,6 +2,8 @@
 <!-- 
   CHANGELOG (Guardian Edition)
   --------------------------------------------------
+  v2.8 (2026-01-28):
+  - STYLE: Doubled the size of the brand watermark (140px desktop / 90px mobile).
   v2.7 (2026-01-28):
   - FEAT: Added persistent HD Brand Logo watermark.
   - STYLE: Added smart drop-shadow to watermark for visibility on custom wallpapers.
@@ -168,7 +170,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 70px;
+            width: 140px; /* INCREASED SIZE */
             height: auto;
             z-index: 2000; /* Sit on top of everything */
             opacity: 0.9;
@@ -683,7 +685,7 @@
             
             /* Brand Logo Mobile */
             .brand-watermark {
-                width: 45px;
+                width: 90px; /* INCREASED SIZE */
                 bottom: 10px;
                 right: 10px;
             }
