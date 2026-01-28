@@ -2,29 +2,27 @@
 <!-- 
   CHANGELOG (Guardian Edition)
   --------------------------------------------------
-  v2.5 (2026-01-28):
+  v2.7 (2026-01-28):
+  - FEAT: Added persistent HD Brand Logo watermark.
+  - STYLE: Added smart drop-shadow to watermark for visibility on custom wallpapers.
+  v2.6 (2026-01-28):
   - CONFIG: Updated Trello API Key for new hosting environment.
-  v2.4 (2026-01-22):
+  v2.5 (2026-01-22):
   - FIX: "Stealth Mode" Audio Strategy. Changed Silent Noise to 30Hz Sine Wave.
-    Allows browser registration (Speaker Icon) without audible humming.
+  v2.4 (2026-01-22):
+  - FIX: Increased gain on "Silent Noise".
   v2.3 (2026-01-22):
-  - FIX: Increased gain on "Silent Noise" to ensure browser 
-    registers audio activity (Speaker Icon visible).
-  v2.2 (2026-01-22):
   - FIX: Added "Silent Noise" Keep-Alive strategy.
+  v2.2 (2026-01-22):
+  - FEAT: GA4 & Clarity Analytics integration.
   v2.1 (2026-01-22):
-  - REFACTOR: Moved polling logic to external Worker (js/worker.js).
-  - FEAT: Added "Smart Grid" layout (3 buckets per row, auto-center remainder).
-  - FEAT: Increased Max Bucket limit from 5 to 10.
-  - FEAT: Enhanced divider card filtering (Training, Innovation, etc.).
-  - FEAT: Added Microsoft Clarity analytics.
+  - REFACTOR: Worker-based polling.
 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>TrelloWatcher</title>
-    
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L20DL17QMT"></script>
     <script>
@@ -34,7 +32,6 @@
       gtag('config', 'G-L20DL17QMT');
     </script>
 
-   
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -165,6 +162,21 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .hidden { display: none !important; }
+
+        /* --- BRAND WATERMARK --- */
+        .brand-watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: auto;
+            z-index: 2000; /* Sit on top of everything */
+            opacity: 0.9;
+            /* Drop shadow ensures visibility on white OR black backgrounds */
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+            pointer-events: none; /* Let clicks pass through to buttons behind it */
+            transition: all 0.3s ease;
+        }
 
         /* --- LOGIN CARD --- */
         .login-card {
@@ -668,10 +680,20 @@
                 max-height: 35vh;
             }
             .bucket-card { width: 48%; } /* 2 per row */
+            
+            /* Brand Logo Mobile */
+            .brand-watermark {
+                width: 45px;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+
+<!-- PERSISTENT BRAND WATERMARK -->
+<img src="icons/HD_logo_last.png" class="brand-watermark" alt="Logo">
 
 <!-- SIDEBAR NAVIGATION -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
